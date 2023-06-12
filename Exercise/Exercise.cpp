@@ -72,13 +72,11 @@ int main() {
 
 	datar = &o;
 	datar->input();
-	cout << "luas lingkaran :" << o.Luas(o.getx()) << endl;
-	cout << "keliling lingkaran :" << o.Keliling(o.getx()) << endl;
+
 
 	datar = &b;
 	datar->input();
-	cout << "luas bujursangkar :" << b.Luas(b.getx()) << endl;
-	cout << "keliling bujursangkar :" << b.Keliling(b.getx()) << endl;
+	
 
 	return 0;
 }

@@ -1,54 +1,84 @@
 #include <iostream>
 using namespace std;
 
-class BidangDatar {
+class bidangdatar {
 private:
-	int x; //variabel untuk menyimpan input dari lingkaran maupun bujursangkar
-public:
-	BidangDatar() { // constructor 
-		x = 0; 
-	}
-	virtual void input(int lingkaran, int bujursangkar) { //fungsi untuk menerima input dan mengirim input melalui fungsi setX untuk disimpan di x
-		x = lingkaran;
-		x = bujursangkar;
-	}
-	virtual float Luas(int a) { //fungsi untuk menghitung luas
-		return 3.14 * a * a;
-		return a * a;
+	int x;
 
-		 return 0;
-	} 
-	virtual float keliling(int a) { // fungsi untuk menghitung keliling
-		return 0; } 
-	void setX(int a) { //fungsi untuk memberi/mengirim nilai pada x
-		this->x = a;
-		cout << "jari-jari : " << a << endl;
-		cout << "sisi : " << a << endl;
+public:
+	bidangdatar() {
+		x = 0;
 	}
-	int getX() { //fungsi untuk membaca/mengambil nilai dalam x
+	virtual void input() {
+
+	}
+	virtual float Luas() {
+		return 0;
+	}
+	virtual float Keliling() {
+		return 0;
+	}
+	void setx(int a) {
+		this->x = a;
+	}
+	int getx() {
 		return x;
 	}
 };
 
-class lingkaran :public BidangDatar {
+class lingkaran :public bidangdatar {
 public:
 	void input() {
-		cout << "lingkaran dibuat\n" << endl;
+		cout << "Lingkarang dibuat" << endl;
+		cout << "Masukkan jejari : ";
+		int r;
+		cin >> r;
+		setx(r);
 	}
+
+	float Luas(int r) {
+		return 3.14 * r * r;
+	}
+
+	float Keliling(int r) {
+		return 2 * 3.14 * r;
+	}
+
 };
-class Bujursangkar :public BidangDatar {
+
+class bujursangkar :public bidangdatar {
 public:
 	void input() {
-		cout << "Bujur sangkar dibuat\n" << endl;
+		cout << "Bujursangkar dibuat" << endl;
+		cout << "Masukkan sisi : ";
+		int S;
+		cin >> S;
+		setx(S);
+	}
+
+	float Luas(int S) {
+		return S * S;
+	}
+
+	float Keliling(int S) {
+		return 4 * S;
 	}
 };
+
 int main() {
-	float jejari, sisi;
-	cout << "Masukan jejari: ";
-	cin >> jejari;
+	bidangdatar* datar;
+	lingkaran o;
+	bujursangkar b;
 
+	datar = &o;
+	datar->input();
+	cout << "luas lingkaran :" << o.Luas(o.getx()) << endl;
+	cout << "keliling lingkaran :" << o.Keliling(o.getx()) << endl;
 
-	cout << "\nMasukan sisi: ";
-	cin >> sisi;
+	datar = &b;
+	datar->input();
+	cout << "luas bujursangkar :" << b.Luas(b.getx()) << endl;
+	cout << "keliling bujursangkar :" << b.Keliling(b.getx()) << endl;
 
+	return 0;
 }
